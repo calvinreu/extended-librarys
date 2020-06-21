@@ -15,9 +15,9 @@ install_matrix: matrix/matrix.h matrix/matrix.cpp matrix/matrix
 
 install_vector: vector/vector vector/vector.cpp vector/vector.hpp
 	mkdir -p /usr/include/c++/$(gccV)/extended
-	cp vector /usr/include/c++/$(gccV)/extended
+	cp vector/vector /usr/include/c++/$(gccV)/extended
 	chmod 0755 /usr/include/c++/$(gccV)/extended/vector
-	cp vector.hpp /usr/include/c++/$(gccV)/extended
+	cp vector/vector.hpp /usr/include/c++/$(gccV)/extended
 	chmod 0755 /usr/include/c++/$(gccV)/extended/vector.hpp
-	cp vector.cpp /usr/include/c++/$(gccV)/extended
+	cp vector/vector.cpp /usr/include/c++/$(gccV)/extended
 	chmod 0755 /usr/include/c++/$(gccV)/extended/vector.cpp
