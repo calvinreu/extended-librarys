@@ -27,10 +27,19 @@ int main(int argc, char const *argv[]) {
 
     std::cout << "init matrix b \n";
     auto c = a*b;
+    c = a+c;
+    c = c-a;
 
     std::cout << c.row_size() << std::endl;
 
     for (auto iR = c.begin(); iR < c.end(); iR++)
+    {
+        for (auto i = iR->begin(); i < iR->end(); i++)
+            std::cout << *i << std::endl;
+        std::cout << "\n";
+    }
+
+    for (auto iR = a.begin(); iR < a.end(); iR++)
     {
         for (auto i = iR->begin(); i < iR->end(); i++)
             std::cout << *i << std::endl;
