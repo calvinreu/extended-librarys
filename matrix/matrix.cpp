@@ -24,7 +24,7 @@ void extended::matrix<T>::operator=(const T&(*func)(const size_t &row, const siz
     if(row_count() != 0)
         throw ("should not use this function for initialized matrix operation aborded: operator=(function)");
 
-    for (size_t iRow = row_count(); iRow < data.max_size(); i++)//do nothing if matrix is already initalized
+    for (size_t iRow = row_count(); iRow < data.max_size(); iRow++)//do nothing if matrix is already initalized
     {
         for (size_t i = 0; i < data.first().max_size(); i++)
         {
