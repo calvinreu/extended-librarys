@@ -22,13 +22,13 @@ template<typename T>
 extended::matrix<T> extended::matrix<T>::operator+(const extended::matrix<T> &other) const
 {
     if(this->row_count() != other.row_count() || this->row_size() != other.row_size())
-        throw std::runtime_error("diffrent ammount initialized or different size");
+        throw std::runtime_error("diffrent ammount initialized or different size: function matrix.+");
 
     extended::matrix<T> retVal(this->row_count(), this->row_size());
 
     for (size_t iRow = 0; iRow < row_count(); iRow++)
         for(size_t i= 0; i < this->row_size(); i++)
-            retVal(iRow, i) = (*this)(iRow, i) + other(iRow, i);
+            retVal.data[iRow].push((*this)(iRow, i) + other(iRow, i));
 
     return std::move(retVal);
 }
@@ -37,13 +37,13 @@ template<typename T>
 extended::matrix<T> extended::matrix<T>::operator-(const extended::matrix<T> &other) const
 {
     if(data.size() != other.data.size() || this->row_size() != other.row_size())
-        throw std::runtime_error("diffrent ammount initialized or different size");
+        throw std::runtime_error("diffrent ammount initialized or different size: function matrix.-");
 
     extended::matrix<T> retVal(this->row_count(), this->row_size());
 
     for (size_t iRow = 0; iRow < row_count(); iRow++)
         for(size_t i = 0; i < this->row_size(); i++)
-            retVal(iRow, i) = (*this)(iRow, i) - other(iRow, i);
+            retVal.data[iRow].push((*this)(iRow, i) - other(iRow, i));
 
     return std::move(retVal);
 }
