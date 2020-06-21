@@ -21,12 +21,12 @@ extended::matrix<T>::matrix(const std::initializer_list<std::initializer_list<T>
 template<typename T>
 extended::matrix<T> extended::matrix<T>::operator+(const extended::matrix<T> &other) const
 {
-    if(data.size() != other.data.size() || data.first().size() != other.data.first().size())
+    if(this->row_count() != other.row_count() || this->row_size() != other.row_size())
         throw std::runtime_error("diffrent ammount initialized or different size");
 
     extended::matrix<T> retVal(this->row_count(), this->row_size());
 
-    for (size_t iRow = 0; iRow < data.size(); iRow++)
+    for (size_t iRow = 0; iRow < row_count(); iRow++)
         for(size_t i= 0; i < this->row_size(); i++)
             retVal(iRow, i) = (*this)(iRow, i) + other(iRow, i);
 
@@ -41,7 +41,7 @@ extended::matrix<T> extended::matrix<T>::operator-(const extended::matrix<T> &ot
 
     extended::matrix<T> retVal(this->row_count(), this->row_size());
 
-    for (size_t iRow = 0; iRow < data.size(); iRow++)
+    for (size_t iRow = 0; iRow < row_count(); iRow++)
         for(size_t i = 0; i < this->row_size(); i++)
             retVal(iRow, i) = (*this)(iRow, i) - other(iRow, i);
 
@@ -54,7 +54,7 @@ extended::matrix<T> extended::matrix<T>::operator*(const extended::matrix<T> & o
     if(this->row_size() != other.row_count())
         throw std::runtime_error("cannot multiply: this rowSize!= other rowCount");
 
-    extended::matrix<T> retVal(this->row_size(), other.row_count());
+    extended::matrix<T> retVal(this->row_count(), other.row_size());
 
     T vectorMultiplicationResult;
 
