@@ -11,8 +11,11 @@ template<typename T>
 extended::matrix<T>::matrix(const std::initializer_list<std::initializer_list<T>> &initData) : data(initData.size())
 {
     for(auto iRow = initData.begin(); iRow < initData.end(); iRow++)
+    {
+        data.push(initData.begin()->size());
         for (auto i = iRow->begin(); i < iRow->end(); i++)
-            data[iRow-initData.begin()].push(*i);  
+            data.last().push(*i);
+    }
 }
 
 template<typename T>
