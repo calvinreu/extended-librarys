@@ -35,6 +35,11 @@ namespace extended{
         void operator=(const matrix<T>  &other){ data = other.data; }
 		void operator=(	  matrix<T> &&other){ data = std::move(other.data);}
         void operator=(const std::initializer_list<std::initializer_list<T>> &initData){ *this = std::move(extended::matrix<T>(initData)); }
+		/*
+		 * @param function which returns a value of the type T and requires size_t row, size_t colunm
+		 * @brief using a function to init the matrix
+		*/
+		void operator=(const T&(*)(const size_t &row, const size_t &colunm));
 
 		T& operator()(const size_t &row, const size_t &index){ return data[row][index]; }
 		const T& operator()(const size_t &row, const size_t &index) const { return data[row][index]; }
