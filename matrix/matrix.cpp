@@ -19,6 +19,23 @@ extended::matrix<T>::matrix(const std::initializer_list<std::initializer_list<T>
 }
 
 template<typename T>
+void extended::matrix<T>::operator=(const T&(*func)(const size_t &row, const size_t &colunm))
+{
+    if(row_count() != 0)
+        throw ("should not use this function for initialized matrix operation aborded: operator=(function)");
+
+    for (size_t iRow = row_count(); iRow < data.max_size(); i++)//do nothing if matrix is already initalized
+    {
+        for (size_t i = 0; i < data.first().max_size(); i++)
+        {
+            data[iRow][i] = func(iRow, i);
+        }
+        
+    }
+    
+}
+
+template<typename T>
 extended::matrix<T> extended::matrix<T>::operator+(const extended::matrix<T> &other) const
 {
     if(this->row_count() != other.row_count() || this->row_size() != other.row_size())
