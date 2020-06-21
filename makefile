@@ -15,7 +15,7 @@ install_matrix: matrix/matrix.h matrix/matrix.cpp matrix/matrix
 	chmod 0755 /usr/include/c++/$(gccV)/extended/matrix.cpp
 
 install_vector: vector/vector vector/vector.cpp vector/vector.hpp
-	g++ vector/test.cpp -o vector/matrix.out
+	g++ vector/test.cpp -o vector/vector.out
 	mkdir -p /usr/include/c++/$(gccV)/extended
 	cp vector/vector /usr/include/c++/$(gccV)/extended
 	chmod 0755 /usr/include/c++/$(gccV)/extended/vector
