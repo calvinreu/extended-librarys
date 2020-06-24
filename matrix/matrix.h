@@ -1,5 +1,4 @@
 #pragma once
-#include <extended/vector>
 #include <error.h>
 #include <initializer_list>
 #include <iostream>
@@ -65,8 +64,8 @@ namespace extended{
 		template<typename to>
 		matrix<to> cast() const;
 		void recreate(const size_t &rowCount, const size_t &rowSize);// deletes all data from the matrix
-			  extended::vector<T> get_data()       {return data; }
-		const extended::vector<T> get_data() const {return data; }
+			  extended::vector<extended::vector<T>> get_data()       {return data; }
+		const extended::vector<extended::vector<T>> get_data() const {return data; }
 		template<typename... args>
 		inline void fill(args &...arguments);//if it isnt trivially_default_constructible arguments arent used
 
