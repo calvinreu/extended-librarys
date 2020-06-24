@@ -1,10 +1,15 @@
 #pragma once
+
+#include <initializer_list>
 #include <memory>
 #include <new>
 #include <iostream>
 #include <string.h>
 
 namespace extended{
+
+	template<typename T>
+	class matrix;//class from extended::matrix lib
 
 	//Container with Data types
 	template<typename T>
@@ -103,6 +108,7 @@ namespace extended{
 
 		vector();
 		vector(const size_t &size);
+		vector(const std::initializer_list<T> &initData);
 		~vector();
 		vector(   vector<T> &&other);
 		vector(const vector<T> &other);
@@ -110,6 +116,7 @@ namespace extended{
 		T& operator[](const size_t &index){ return m_data[index]; }
 		const T& operator[](const size_t &index) const { return m_data[index]; }
 		T& operator*(const vector<T> &other) const;
+		vector<T> operator*(const extended::matrix<T> &other) const;
 		vector<T> operator+(const vector<T> &other) const;
 		vector<T> operator-(const vector<T> &other) const;
 		void operator-=(const vector<T> &other);

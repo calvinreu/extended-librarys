@@ -1,11 +1,10 @@
+#pragma once
 
-#include <cstring>
-#include <new>
-#include <memory>
-#include <iostream>
-#include <fstream>
+//tell extended/matrix to not include vector files
+#define VECTOR_NOT_REQUIRED
+
 #include "vector.hpp"
-
+#include <extended/matrix>
 
 template<typename T>
 extended::vector<T>::vector(){
@@ -31,6 +30,26 @@ extended::vector<T>::vector(const size_t &size)
 		throw e;
 	}
 
+}
+
+template<typename T>
+extended::vector<T>::vector(const std::initializer_list<T> &initData)
+ : m_max_size(initData.size()), m_size(0)
+{
+	//Create an array to save the data
+	try
+	{
+		m_data = memory.allocate(m_size);
+	}
+	catch(const std::bad_alloc& e)
+	{
+		std::cerr << e.what() << '\n';
+		throw e;
+	}
+
+	for (auto i = initData.begin(); i < initData.end(); i++)
+		this->push(*i);
+	
 }
 
 template<typename T>
@@ -116,6 +135,28 @@ T& extended::vector<T>::operator*(const vector<T> &other) const
 		retVal += m_data[i] * other[i];
 
 	return retVal;
+}
+
+template<typename T>
+extended::vector<T> extended::vector<T>::operator*(const extended::matrix<T> &other) const
+{
+	if(this->size() != other.row_count())
+        throw std::runtime_error("cannot multiply: this rowSize!= other rowCount");
+
+    extended::vector<T> retVal(other.row_size());
+
+    T vectorMultiplicationResult;
+
+    for(size_t iColumn = 0; iColumn < other.row_size(); iColumn++)
+    {
+        vectorMultiplicationResult = 0;
+        for(size_t i = 0; i < m_size; i++)
+            vectorMultiplicationResult += (*this)[i] * other(i, iColumn);
+
+        retVal.push(vectorMultiplicationResult);
+    }
+
+	return std::move(retVal);
 }
 
 template<typename T>
