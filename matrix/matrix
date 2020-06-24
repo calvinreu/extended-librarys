@@ -1,5 +1,3 @@
-#include "matrix.cpp"
-
 // Copyright (C) 2020 calvinreu.
 //
 // this matrix library is free software; you can redistribute it and/or modify
@@ -16,5 +14,12 @@
 // See <http://www.gnu.org/licenses/>.
 
 /** @file matrix
- * this library is using the c++ stl and https://gitlab.com/calvinreu/vector librarys
+ * this library is using the c++ stl librarys
  */
+#pragma once
+
+#ifndef VECTOR_NOT_REQUIRED
+#include <extended/vector>
+#endif
+
+#include "matrix.cpp"
