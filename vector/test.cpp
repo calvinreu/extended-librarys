@@ -1,4 +1,6 @@
-#include <extended/vector>
+#include "vector.cpp"
+#include <extended/matrix>
+#include <initializer_list>
 #include <iostream>
 using extended::vector;
 
@@ -59,10 +61,24 @@ int main() {
     for(auto i = v3.begin(); i < v3.end(); i++)
         std::cout << *i << std::endl;
 
+    std::cout << "------------" << std::endl;
+
     for(size_t i = 0; i < 5; i++)
         v3.push();
 
     std::cout << v3.size() << std::endl;
 
     v3 += v1;
+
+    std::cout << "------------" << std::endl;
+
+    vector<double> v4 = {0.5, 1.0, 1.5};
+    extended::matrix<double> m1 = { {1,0,0}, {0,1,0}, {0,0,1}};
+
+    auto v5 = v4*m1;
+
+    for(auto i = v5.begin(); i < v5.end(); i++)
+        std::cout << *i << ":";
+
+    std::cout << std::endl;
 }
