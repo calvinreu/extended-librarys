@@ -23,3 +23,8 @@ install_vector: vector/vector vector/vector.cpp vector/vector.hpp
 	chmod 0755 /usr/include/c++/$(gccV)/extended/vector.hpp
 	cp vector/vector.cpp /usr/include/c++/$(gccV)/extended
 	chmod 0755 /usr/include/c++/$(gccV)/extended/vector.cpp
+
+install_random:
+	mkdir -p /usr/include/c++/$(gccV)/extended
+	cp random/random.hpp /usr/include/c++/$(gccV)/extended
+	chmod 0755 /usr/include/c++/$(gccV)/extended/random.hpp
