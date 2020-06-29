@@ -4,10 +4,10 @@
 
 namespace extended{
 
-    inline int random_int()
+    inline int random_int(const int &max)
     {
         srand(time(NULL));
-        return rand();
+        return rand()%max+1;
     }
     
     inline double random_double(double fMin, double fMax)
