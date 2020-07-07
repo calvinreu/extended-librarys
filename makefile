@@ -3,6 +3,8 @@ gccV := $(shell gcc -dumpversion)
 install:
 	make install_matrix
 	make install_vector
+	make install_random
+
 
 install_matrix: matrix/matrix.h matrix/matrix.cpp matrix/matrix
 	g++ matrix/test.cpp -o matrix/matrix.out
