@@ -1,4 +1,4 @@
-#include "vector.cpp"
+#include "vector"
 #include <extended/matrix>
 #include <initializer_list>
 #include <iostream>

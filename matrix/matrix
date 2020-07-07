@@ -18,6 +18,9 @@
  */
 #pragma once
 
+//tell vector not to include matrix files only important for testing
+#define MATRIX_NOT_REQUIRED
+
 #ifndef VECTOR_NOT_REQUIRED
 #include <extended/vector>
 #endif

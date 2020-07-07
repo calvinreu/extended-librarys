@@ -1,10 +1,4 @@
-#pragma once
-
-//tell extended/matrix to not include vector files
-#define VECTOR_NOT_REQUIRED
-
 #include "vector.hpp"
-#include <extended/matrix>
 
 template<typename T>
 extended::vector<T>::vector(){

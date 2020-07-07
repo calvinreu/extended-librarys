@@ -18,11 +18,10 @@
  */
 #pragma once
 
+#include "vector.cpp"
 //tell extended/matrix to not include vector files only important for testing
 #define VECTOR_NOT_REQUIRED
 
 #ifndef MATRIX_NOT_REQUIRED
 #include <extended/matrix>
 #endif
-
-#include "vector.cpp"
