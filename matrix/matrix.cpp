@@ -124,3 +124,14 @@ void extended::matrix<T>::recreate(const size_t &rowCount, const size_t &rowSize
     for(size_t i = 0; i < data.max_size(); i++)
         data.push(rowSize);
 }
+
+template<typename T>
+void extended::matrix<T>::gausAlgorithm() {
+    //swap rows
+    //make pivot positions for the first rows with a bigger potential pivot position
+    //subtrackt rows till the pivot positions are clear
+    //remove duplicate pivot positions
+    //remove Null lines
+    //subtract every line with a multiple of the lines with pivot positions below
+
+}

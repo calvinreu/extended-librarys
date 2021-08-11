@@ -69,6 +69,10 @@ namespace extended{
 		template<typename... args>
 		inline void fill(args &...arguments);//if it isnt trivially_default_constructible arguments arent used
 
+		void gausAlgorithm();
+		size_t rank() const;
+		size_t invert() const;
+
 		//iterator functions
 		inline typename extended::vector<extended::vector<T>>::normal_iterator begin (){ return data.begin (); }
 		inline typename extended::vector<extended::vector<T>>::normal_iterator end   (){ return data.end   (); }
